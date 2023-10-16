@@ -1,0 +1,54 @@
+﻿<Window x:Class="Data_Management_Flights_wpf.Homepage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Data_Management_Flights_wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Homepage" Height="450" Width="800" WindowState="Maximized"
+        MinHeight="500" MinWidth="500">
+    <Grid Background="#232F34">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Row for the label -->
+            <RowDefinition Height="Auto" />
+            <!-- Row for the Data Management Category label -->
+            <RowDefinition Height="*" />
+            <!-- Row for the rest of the content -->
+        </Grid.RowDefinitions>
+
+        <Label Content="Airline Data Management" HorizontalAlignment="Left" Foreground="#4A6572"  FontSize="25" FontWeight="Bold" Margin="0,10,0,0" />
+        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Logout_Click" Margin="0,5,10,0" Grid.Row="0" />
+
+        <Label Content="Data Management Category" HorizontalAlignment="Left" Foreground="#4A6572"  FontSize="10" FontWeight="Bold" Margin="0,10,0,0" Grid.Row="1" />
+        <Label x:Name="lbCurrenUser" Content="Current User:" HorizontalAlignment="Right" Foreground="#4A6572"  FontSize="15" FontWeight="Bold"   Grid.Row="1" />
+        <Border  Background="GhostWhite" BorderBrush="#4A6572" BorderThickness="2" Grid.Row="2">
+            <Grid Grid.Row="2" Background="#282C34">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <!-- Column for the ListBox -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Column for the container -->
+                </Grid.ColumnDefinitions>
+
+                <ListBox x:Name="listBox" Background="#232F34" SelectionChanged="listBox_SelectionChanged" Grid.Column="0" Grid.ColumnSpan="1" BorderThickness="2,0,2,0" BorderBrush="#4A6572">
+                    <ListBoxItem Foreground="#4A6572"  FontSize="15" FontWeight="DemiBold" >Airports</ListBoxItem>
+                    <ListBoxItem Foreground="#4A6572"  FontSize="15" FontWeight="DemiBold">Airline Companies</ListBoxItem>
+                    <ListBoxItem Foreground="#4A6572"  FontSize="15" FontWeight="DemiBold" IsEnabled="False">Airplanes</ListBoxItem>
+                    <ListBoxItem Foreground="#4A6572"  FontSize="15" FontWeight="DemiBold" IsEnabled="False">Brands</ListBoxItem>
+                    <ListBoxItem Foreground="#4A6572"  FontSize="15" FontWeight="DemiBold">Flights</ListBoxItem>
+                    <ListBoxItem Foreground="#4A6572"  FontSize="15" FontWeight="DemiBold" IsEnabled="False">Passengers</ListBoxItem>
+                    <ListBoxItem Foreground="#4A6572"  FontSize="15" FontWeight="DemiBold">Pilots</ListBoxItem>
+                </ListBox>
+
+                <Grid x:Name="gridContainer" Background="#232F34" Grid.Column="1" Margin="0,0,0,0">
+                    <local:AirportWindow x:Name="Airport" Visibility="Collapsed"></local:AirportWindow>
+                    <local:CompanyWindow x:Name="Company" Visibility="Collapsed"></local:CompanyWindow>
+                    <local:PilotWindow x:Name="Pilot" Visibility="Collapsed"></local:PilotWindow>
+                    <local:FlightWindow x:Name="Flight" Visibility="Collapsed"></local:FlightWindow>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

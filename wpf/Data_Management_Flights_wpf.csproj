@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+	<ApplicationIcon>Assets\AirplaneIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\registration.png" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Assets\AirplaneIcon.ico" />
+	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\airplane.png" />
+		<Resource Include="Assets\registration.png" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dal\Data_Management_Flights_dal.csproj" />
+    <ProjectReference Include="..\models\Data_Management_Flights_models.csproj" />
+  </ItemGroup>
+
+</Project>
